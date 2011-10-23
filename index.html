@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>eloperDev home</title>
+		<meta name="description" content="An experiment for places."/>
+		<meta name="keywords" content="eloperdev"/>
+		<meta name="author" content="Chris Kudelka"/>
+
+        <link href="style.css" rel="stylesheet" type="text/css" media="screen"/>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+        <script type="text/javascript">
+            function getPage(selector) {
+                try {               
+                    var target = $(selector)[0];
+                    if(!target.hasChildNodes()) {
+                        //alert('test');
+                        $.ajax({
+                            url: selector.substr(1)+".html",
+                            dataType: "html",
+                            success: function(data, textStatus, jqXHR) {
+                                target.innerHTML = data;                          
+                            }                 
+                        
+                        });
+                    }
+                } catch(e) {               
+                    //alert(e);
+                }
+            }
+            $(document).ready(function() {
+                var hash = String(document.location);
+                hash = hash.split("#");
+                if (hash.length > 1) { //so page doesn't load blank
+                    hash = "#"+hash[hash.length-1];
+                    //alert(hash);
+                    getPage(hash);
+                } else {
+                    document.location.href += "#home";
+                }
+                $("span.navspan a").click(function() {
+                    //alert();
+                    var selector = $(this).attr('href');
+                    getPage(selector);           
+                });
+				/*
+				$("span.navspan a").mouseenter(function(e) {
+					$("div#topnavbar").css("background-color","red");
+					
+				});
+				$("span.navspan a").mouseout(function(e) {
+					$("div#topnavbar").css("background-color","black");
+					
+				});
+				*/
+            });
+        </script>
+    </head>
+<body>
+<div id="container">
+<div id="header">
+<h1><a href="#home" title="eloperDev home">eloperDev</a></h1>
+</div>
+<div id="topnavbar">
+	<span class="navspan"><a href="#home">home</a></span><span class="navspan"><a href="#dev">dev</a></span><span class="navspan"><a href="#write">write</a></span><span class="navspan"><a href="#read">read</a></span><span class="navspan"><a href="#about">about</a></span><span class="navspan"><a href="#ip">ip</a></span>
+</div>
+
+<div id="content">
+    <div class="page" id="home">
+        <h2 class="bgheader">home!</h2>
+        <p id="p1">
+        </p>
+		<p id="p2">
+        </p>
+    </div>
+    <div class="page" id="dev"></div>
+    <div class="page" id="write"></div>    
+    <div class="page" id="read"></div>
+    <div class="page" id="about"></div> 
+    <div class="page" id="ip"></div>
+</div>
+<div id="footer">
+    <span>&copy; 2011 &middot; Chris Kudelka </span>
+</div>
+
+
+</body>
+</html>

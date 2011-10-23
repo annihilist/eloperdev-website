@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rotating Inputs</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="rotator.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript">
+        var init = function(nDegrees){                     
+            numFields = $("#rotator input").length;
+            $("#rotator input").each(function(index) {
+                //console.log(index, $(this).attr("id"));
+                var rotate = nDegrees/numFields*index; //180 for half circle              
+                $(this).data({
+                    "rotate":rotate
+                });
+                
+                $(this).css({
+                "-webkit-transform":function() {
+                    return "rotate("+rotate+"deg)";
+                },"-moz-transform":function() {
+                    return "rotate("+rotate+"deg)";
+                },
+                "-webkit-transform-origin":function() {
+                    return "top right";
+                },"-moz-transform-origin":function() {
+                    return "top right";
+                }               
+                });
+            })
+        }
+        $(document).ready(function() {
+            //alert('ready');
+            //$("#input1").addClass("next");
+            var rotator = $("#rotator"); 
+            init(360);                     
+            $("input").focus(function() {
+                
+                var rotate = -$(this).data("rotate"); //to be changed to this.attr('rotate');                
+                rotator.css({
+                "-webkit-transform":function() {
+                    return "rotate("+rotate+"deg)";
+                },"-moz-transform":function() {
+                    return "rotate("+rotate+"deg)";
+                }
+                
+                });
+            });
+            $("#changeBttn").click(function() {
+                if(parseInt($("#rotatorDegrees").attr("value"))) {
+                    init(parseInt($("#rotatorDegrees").attr("value")));
+                } else {
+                    alert("invalid entry");
+                    return false;
+                };
+            });
+        });
+        
+    </script>
+
+</head>
+<body>
+    
+    <div id="container">
+    <h1>Rotating Inputs</h1>
+    <div>
+        <label for="rotatorDegrees">Degrees to rotate: </label><input id="rotatorDegrees" type="text" size="2" maxlength="4" value="360"><button id="changeBttn">Change Degrees</button>
+    </div><br/>
+        <h2 style="text-align: center;">Click a label or focus an input to rotate</h2>
+        <div id="labels" >
+            
+            <label for="input1"><button>Input 1</button></label>
+            <label for="input2"><button>Input 2</button></label>
+            <label for="input3"><button>Input 3</button></label>
+            <label for="input4"><button>Input 4</button></label>
+            <label for="input5"><button>Input 5</button></label>
+            <label for="input6"><button>Input 6</button></label>
+            <label for="input7"><button>Input 7</button></label>
+            <label for="input8"><button>Input 8</button></label>
+            <label for="input9"><button>Input 9</button></label>
+            <label for="input10"><button>Input 10</button></label>
+            <label for="input11"><button>Input 11</button></label>
+            <label for="input12"><button>Input 12</button></label>
+       </div>
+       <div id="rotator">
+           <div id="inputs">
+               <input type="text" id="input1" value="input1">
+               <input type="text" id="input2" value="input2">
+               <input type="text" id="input3" value="input3">
+               <input type="text" id="input4" value="input4">
+               <input type="text" id="input5" value="input5">
+               <input type="text" id="input6" value="input6">
+               <input type="text" id="input7" value="input7">
+               <input type="text" id="input8" value="input8">
+               <input type="text" id="input9" value="input9">
+               <input type="text" id="input10" value="input10">
+               <input type="text" id="input11" value="input11">
+               <input type="text" id="input12" value="input12">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

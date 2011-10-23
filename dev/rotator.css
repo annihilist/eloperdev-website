@@ -1,0 +1,63 @@
+body {
+    font-family: Consolas;
+    font-size: 10pt;    
+    background: black;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+#rotator label {
+    float: left;
+    font-size: 20pt;
+    color: white;
+}
+#labels button {
+    width: 5em;
+    height: 30px;
+}
+#rotator input {
+    background-color: black; 
+    border-top: 0;
+    border-right: 0;
+    position: absolute;
+    width: 200px;
+    color: white;
+    height: 2em;
+}
+#rotator input:focus {
+    -webkit-transition: background 1s;
+    -moz-transition: background 1s;
+    background: white;
+    color: black;
+    z-index: 2;
+    opacity: 1;
+}
+div#rotator {
+    -webkit-transition: all .8s;
+    -moz-transition: all .8s;
+    -webkit-transform-origin: top right;
+    -moz-transform-origin:top right;
+    position: absolute;
+    !background-color: black;    
+    width: 200px;
+    height: 200px;
+    margin-left:200px;
+    margin-top: 250px;
+    !border-radius: 100%;
+}
+#container {
+    position: relative;
+    margin: auto auto;
+    width: 800px;
+    height: 800px;
+    color: white;
+    padding: 10px;
+    
+}
+#labels {
+    
+    position: relative;
+    margin: 50px auto;
+    width: 300px;
+}

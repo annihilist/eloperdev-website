@@ -1,0 +1,356 @@
+@font-face {
+  font-family: 'Philosopher';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Philosopher'), url('http://themes.googleusercontent.com/font?kit=OttjxgcoEsufOGSINYBGLYbN6UDyHWBl620a-IRfuBk') format('woff');
+}
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: normal;
+  src: local('PT Sans'), local('PTSans-Regular'), url('http://themes.googleusercontent.com/font?kit=LKf8nhXsWg5ybwEGXk8UBQ') format('woff');
+}
+@font-face {
+  font-family: 'Reenie Beanie';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Reenie Beanie'), local('ReenieBeanie'), url('http://themes.googleusercontent.com/font?kit=ljpKc6CdXusL1cnGUSamX_n8qdNnd5eCmWXua5W-n7c') format('woff');
+}
+
+
+body {
+    background: url("old_paper2.jpg");
+    !background-size: 100%;
+    font-family: 'Reenie Beanie';
+    overflow: hidden;
+    color: #5E2612;
+    
+}
+h1, h2, h3, h4, h5 {
+    
+    font-family: "Philosopher";
+}
+
+ul, li, div, h1, h2, h3, h4, h5 {
+    padding: 0px;
+    margin: 0px;
+}
+h3 {
+    color: transparent;
+}
+ul {
+    list-style: none;
+}
+li {
+    text-indent: 0;
+}
+a:link {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
+#pageHeader:before {
+    font-family: "Philosopher";
+    content: "CSS Golden Ratio";
+    font-size: 180%;
+    font-weight: bold;
+}
+#pageHeader:after {
+    display: block;
+    font-family: "Philosopher";
+    content: "the beauty of \03C6";
+    font-size: 150%;
+}
+#pageHeader h2,#pageHeader h1{
+    display: none;
+}
+#pageHeader, #quickSummary {
+    float: right;
+    clear: both;
+    text-align: right;
+    width: 400px;
+    opacity: 0.9;
+    height: 80px;
+    font-size: 120%;
+    z-index: -2;
+}
+#quickSummary {
+    top: 100px;
+}
+#extraDiv1:before {    
+    content: url("./Davinci_Man.jpg");
+    position: absolute;
+    z-index: -2;
+    right: 100px;    
+    width: 400px;
+    height: 400px;
+    opacity: 0.3;
+}
+
+#extraDiv2:after, #extraDiv3:after, #extraDiv4:after, #extraDiv5:after {
+    position: absolute;
+    font-size: 25px;
+    top: 50px;
+    left: 200px;
+    opacity: 0.4;
+}
+
+#extraDiv2:after {
+    
+    content: "1-archives 2-resources";
+    margin-top: 50px;
+}
+#extraDiv3:after {
+    content: "3-designs 4-benefits";
+    margin-top: 100px;
+}
+#extraDiv4:after {
+    content: "5-preamble 6-explanation";
+    margin-top: 150px;
+}
+#extraDiv5:after {
+    content: "7-participation 8-requirements";
+    margin-top: 200px;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+/*
+Content elements from most to least (IDs provided):
+1-larchives
+2-lresources
+3-lselect
+4-benefits
+5-preamble
+6-explanation
+7-participation
+8-requirements
+*/
+#larchives, #lresources, #lselect, #benefits, #preamble, #explanation, #participation, #requirements {
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 0.1s;
+    background-color: transparent;
+    text-align: justify;
+    opacity: 0.7;
+    border-top: 2px solid #5E2612 ;
+    border-left: 2px solid #5E2612;    
+    overflow: hidden;
+    border-top-left-radius: 100%;
+    font-family: 'Reenie Beanie';
+    font-stretch: narrower; 
+}
+#larchives p, #lresources p, #lselect li, #benefits p, #preamble p, #explanation p, #participation p, #requirements p {
+    color: transparent;
+}
+#larchives a, #lresources a, #lselect a, #benefits a, #preamble a, #explanation a, #participation a, #requirements a {
+    color: transparent;
+}
+#larchives:hover:before, #lresources:hover:before, #lselect:hover:before, #benefits:hover:before, #preamble:hover:before, #explanation:hover:before, #participation:hover:before, #requirements:hover:before {
+    display: none;
+}
+#larchives:hover p, #lresources:hover p, #lselect:hover li, #benefits:hover p, #preamble:hover p, #explanation:hover p, #participation:hover p, #requirements:hover p, #larchives:hover a, #lresources:hover a, #lselect:hover a, #benefits:hover a, #preamble:hover a, #explanation:hover a, #participation:hover a, #requirements:hover a,#larchives:hover h3, #lresources:hover h3, #lselect:hover h3, #benefits:hover h3, #preamble:hover h3, #explanation:hover h3, #participation:hover h3, #requirements:hover h3 {
+
+    color: white;
+}
+#larchives:hover, #lresources:hover, #lselect:hover, #benefits:hover, #preamble:hover, #explanation:hover, #participation:hover, #requirements:hover {
+    z-index:2;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 0.4s;
+    -webkit-transition-delay: 0.4s;
+    -webkit-transition-timing-function: ease-in-out;
+    -webkit-transform:rotate(0deg);
+        -moz-transition-property: all;
+        -moz-transition-duration: 0.4s;    
+        -moz-transition-delay: 0.4s;
+        -moz-transition-timing-function: ease-in;
+        -moz-transform:rotate(0deg);
+    !font-family: Meddon;    
+    !font-family:'Reenie Beanie';
+    border: 2px solid #5E2612;    
+    border-top-left-radius: 0;
+    font-size: 120%;
+    position: absolute;
+    padding: 15px;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    opacity: 0.8;
+}
+#larchives:before {
+    position: absolute;
+    content: "1";
+    font-size: 30px;
+    margin-left: 14px;
+    margin-top: -12px;
+}
+#larchives {
+    position: absolute;
+    bottom: 150px;
+    left: 720px;
+    width: 30px;
+    height: 30px;    
+    -webkit-transform:rotate(-90deg);  
+    -moz-transform:rotate(-90deg);  
+}
+#larchives:hover {
+    bottom: 0;
+    left: 630px;
+    width: 400px;
+    height: 300px;
+}
+#lresources:before {
+    position: absolute;
+    content: "2";
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: -10px;
+}
+#lresources {
+    position: absolute;
+    bottom: 150px;
+    left: 750px;
+    width: 30px;
+    height: 30px;
+    -webkit-transform:rotate(180deg);    
+    -moz-transform:rotate(180deg);    
+}
+#lresources:hover {    
+    bottom: 0;
+    left: 630px;
+    width: 400px;
+    height: 300px;
+}
+#lselect:before {
+    position: absolute;
+    content: "3";
+    font-size: 30px;
+    margin-left: 4px;
+    margin-top: 15px;
+}
+#lselect {
+    position: absolute;
+    bottom: 180px;
+    left: 720px;    
+    width: 60px;
+    height: 60px;
+    -webkit-transform:rotate(90deg); 
+    -moz-transform:rotate(90deg); 
+}
+#lselect:hover {
+    
+    left: 630px;
+    width: 400px;
+    height: 300px;
+}
+#benefits:before {
+    position: absolute;
+    content: "4";
+    font-size: 30px;
+    margin-left: 4px;
+    margin-top: 40px;
+}
+#benefits {
+    position: absolute;
+    bottom: 150px;
+    left: 630px;    
+    width: 90px;
+    height: 90px;
+    -webkit-transform:rotate(0deg);
+    -moz-transform:rotate(0deg);
+}
+#benefits:hover {
+    
+    width: 400px;
+    height: 300px;  
+}
+#preamble:before {
+    position: absolute;
+    content: "5";
+    font-size: 30px;
+    margin-left: 33px;
+    margin-top: 40px;
+}
+#preamble {
+    position: absolute;
+    bottom: 0px;
+    left: 630px;    
+    width: 150px;
+    height: 150px;        
+    -webkit-transform:rotate(-90deg);
+    -moz-transform:rotate(-90deg);
+}
+#preamble:hover {
+    
+    left: 350px;
+    width: 400px;
+    height: 500px;
+}
+#explanation:before {
+    position: absolute;
+    content: "6";
+    font-size: 30px;
+    margin-left: 85px;
+    margin-top: 40px;
+}
+#explanation {
+    position: absolute;
+    bottom: 0px;
+    left: 780px;    
+    width: 240px;
+    height: 240px;
+    -webkit-transform:rotate(180deg);  
+    -moz-transform:rotate(180deg);  
+}
+#explanation:hover {
+    
+    width: 400px;
+    height: 500px;
+}
+#participation:before {
+    position: absolute;
+    content: "7";
+    font-size: 30px;
+    margin-left: 85px;
+    margin-top: 130px;
+}
+#participation {
+    position: absolute;
+    bottom: 240px;
+    left: 630px;    
+    width: 390px;
+    height: 390px;
+    -webkit-transform:rotate(90deg); 
+    -moz-transform:rotate(90deg); 
+}
+#participation:hover {
+    
+    width: 400px;
+    height: 450px;
+}
+#requirements:before {
+    position: absolute;
+    content: "8";
+    font-size: 30px;
+    margin-left: 225px;
+    margin-top: 130px;
+}
+#requirements {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;    
+    width: 630px;
+    height: 630px;
+    -webkit-transform:rotate(0deg); 
+    -moz-transform:rotate(0deg); 
+
+}
+#requirements:hover {
+    
+    width: 600px;
+    height: 660px;
+    
+}
