@@ -36,19 +36,37 @@ sub {
     padding: 0px;
     opacity: 0.3;
 }
+div.back {
+	-webkit-transform: rotateY(180deg);
+	z-index: -1;
+	
+}
+div.front {
+	-webkit-transform: rotateY(0deg);
+	z-index: 1;
+}
 .page {
+	-webkit-transition: all 0.5s;
+	-webkit-transform-style: preserve-3d;
+	background-color: black;
+	position: absolute;
+	top: 0;
     min-height: 400px;
-    display: none;
     padding: 1em 1em 1em 2em;    
     text-align: left;
     border-radius: 5px 5px 0 0;
     color: white;
+	width: 100%;
 }
+.page:hover {
+}
+
 .page:target {
     
     display: block;
 }
 #content {
+	position: relative;
     margin-top: 1em;
     
 }
@@ -66,6 +84,8 @@ sub {
     text-align: center;
     
     
+}
+#container {
 }
 
 .navspan a {

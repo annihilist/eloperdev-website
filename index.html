@@ -8,26 +8,59 @@
 		<meta name="author" content="Chris Kudelka"/>
 
         <link href="style.css" rel="stylesheet" type="text/css" media="screen"/>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
         <script type="text/javascript">
             function getPage(selector) {
-                try {               
-                    var target = $(selector)[0];
-                    if(!target.hasChildNodes()) {
-                        //alert('test');
-                        $.ajax({
-                            url: selector.substr(1)+".html",
-                            dataType: "html",
-                            success: function(data, textStatus, jqXHR) {
-                                target.innerHTML = data;                          
-                            }                 
-                        
-                        });
-                    }
+                try {      
+					var curHash = String(document.location).split("#")[1];
+					var newHash = selector.split("#")[1]
+					console.log(curHash)
+					console.log(newHash)
+					if (curHash != newHash) {
+					
+						
+						var face1 = $("#face1");
+						var face2 = $("#face2");
+						var target = $(selector)[0];
+						if (face1.hasClass("front")) {
+							destination = face2;
+						} else {
+							destination = face1;
+						}
+						$.ajax({
+							url: selector.substr(1)+".html",
+							dataType: "html",
+							success: function(data, textStatus, jqXHR) {
+								destination[0].innerHTML = data;
+								flip();
+								
+								
+							}
+						})
+					} else {
+						console.log("already on page")
+					}
+						
                 } catch(e) {               
-                    //alert(e);
+                    console.log(e);
                 }
             }
+			
+			function flip() {
+				var face1 = $("#face1");
+				var face2 = $("#face2");
+				if (face1.hasClass("front")) {
+					destination = face2;
+					origin = face1;
+				} else {
+					destination = face1;
+					origin = face2;
+				}
+				destination.removeClass("back");
+				destination.addClass("front");
+				origin.removeClass("front");
+				origin.addClass("back");
+			}
             $(document).ready(function() {
                 var hash = String(document.location);
                 hash = hash.split("#");
@@ -43,16 +76,11 @@
                     var selector = $(this).attr('href');
                     getPage(selector);           
                 });
-				/*
-				$("span.navspan a").mouseenter(function(e) {
-					$("div#topnavbar").css("background-color","red");
-					
-				});
-				$("span.navspan a").mouseout(function(e) {
-					$("div#topnavbar").css("background-color","black");
-					
-				});
-				*/
+				$("#face1").addClass("front")
+				$("#face2").addClass("back")
+				$(".page").click(function() {
+					//flip();
+				})
             });
         </script>
     </head>
@@ -66,18 +94,19 @@
 </div>
 
 <div id="content">
-    <div class="page" id="home">
+    <div class="page" id="face1">
         <h2 class="bgheader">home!</h2>
+        <p>
+		This is the front
+		Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
+		</p>
+    </div><div class="page" id="face2">
         <p id="p1">
-        </p>
-		<p id="p2">
+		This is the back!
+		Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.
+
         </p>
     </div>
-    <div class="page" id="dev"></div>
-    <div class="page" id="write"></div>    
-    <div class="page" id="read"></div>
-    <div class="page" id="about"></div> 
-    <div class="page" id="ip"></div>
 </div>
 <div id="footer">
     <span>&copy; 2011 &middot; Chris Kudelka </span>
